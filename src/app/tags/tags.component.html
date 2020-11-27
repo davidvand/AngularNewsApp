@@ -1,0 +1,23 @@
+<h1>Beheren Tags</h1>
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tag name</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let tag of tags">
+        <th scope="row">{{tag.tagID}}</th>
+        <td>{{tag.name}}</td>
+        <td><a (click)="deleteTag(tag)" class="btn btn-danger">Delete</a></td>
+      </tr>
+      <tr><td colspan="4">
+        <a routerLink="/add-tag" class="btn btn-success">Nieuwe tag toevoegen</a>
+      </td></tr>
+      
+    </tbody>
+  </table>

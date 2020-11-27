@@ -1,0 +1,29 @@
+<h1 *ngIf="currentUser.roleID == 3">Admin Control panel </h1>
+
+<div class="row" *ngIf="currentUser.roleID == 3">
+    <div class="col">
+        <a class="btn btn-primary"  role="button" routerLink="/journalisten">Journalisten beheren</a>
+        <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">perm_identity</mat-icon>
+    </div>
+    <div class="col bg-secondary">       
+         <a class="btn btn-primary" role="button" routerLink="/artikelen">Artikelen beheren</a>
+         <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">article</mat-icon>
+    </div>
+    <div class="col">
+        <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">speaker_notes</mat-icon>
+
+                <a class="btn btn-primary" role="button" routerLink="/tags">Tags beheren</a>
+                
+        </div>
+</div>
+
+<h1 *ngIf="currentUser.roleID == 2">Journalist Control panel </h1>
+
+<div class="row" *ngIf="currentUser.roleID == 2">
+    <div class="col bg-secondary">       
+        <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">article</mat-icon>
+        <br>
+         <a class="btn btn-primary" role="button" routerLink="/artikelen">Artikelen beheren</a>        
+    </div>
+</div>
+

@@ -1,0 +1,62 @@
+<h2>Artikel Toevoegen</h2>
+<form #articleForm="ngForm" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input formInput [(ngModel)]="currentArticle.title"  type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
+        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+            <div *ngIf="f.firstname.errors.required">Title is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="subtitle">Subtitle</label>
+        <input formInput [(ngModel)]="currentArticle.subTitle"  type="text" formControlName="subtitle"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subtitle.errors }" />
+        <div *ngIf="submitted && f.subtitle.errors" class="invalid-feedback">
+            <div *ngIf="f.subtitle.errors.required">subtitle is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="shortsummary">Shortsummary</label>
+        <input formInput   type="text" formControlName="shortsummary" [(ngModel)]="currentArticle.shortSummary" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.shortsummary.errors }" />
+        <div *ngIf="submitted && f.shortsummary.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">shortsummary is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="body">Body</label>
+        <textarea [(ngModel)]="currentArticle.body"   formControlName="body" rows="10" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.body.errors }" >{{currentArticle.body}}</textarea>
+        <div *ngIf="submitted && f.body.errors" class="invalid-feedback">
+            <div *ngIf="f.body.errors.required">body is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="imageurl">Image URL</label>
+        <input [(ngModel)]="currentArticle.imageUrl"   type="text" formControlName="imageurl" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.imageurl.errors }" />
+        <div *ngIf="submitted && f.imageurl.errors" class="invalid-feedback">
+            <div *ngIf="f.imageurl.errors.required">imageurl is required</div>
+        </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        <label for="tag">Tag</label>
+        <select [(ngModel)]="currentArticle.tagID" class="form-control"   formControlName="tag"   >
+            <option [ngValue]="tag.tagID" *ngFor="let tag of tags">{{tag.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="status">Article Status</label>
+        <select [(ngModel)]="currentArticle.articleStatusID"  class="form-control"   formControlName="status"   >
+            <option [ngValue]="status.articleStatusID" *ngFor="let status of statuses">{{status.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Toevoegen
+        </button>
+    </div>
+</form>

@@ -1,0 +1,9 @@
+<h1>Hi {{currentUser.firstName}}!</h1>
+<p>You're logged in with Angular 8!!</p>
+<h3>All articles:</h3>
+<ul>
+    <li *ngFor="let article of newsArticles">
+        {{article.title}} ({{article.subTitle}} {{article.shortSummary}})
+        - <a (click)="deleteArticle(article.articleID)" class="text-danger">Delete</a>
+    </li>
+</ul>
