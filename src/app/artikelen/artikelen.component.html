@@ -1,0 +1,39 @@
+<h1>Beheren Artikelen</h1>
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Subtitle</th>
+        <th scope="col">Shortsummary</th>
+        <th scope="col">Image</th>
+        <th scope="col">Tag</th>
+        <th scope="col">User</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let article of artikelen">
+        <td>{{article.articleID}}</td>
+        <td>{{article.title}}</td>
+        <td>{{article.subTitle}}</td>
+        <td>{{article.shortSummary}}</td>
+        <td><img class="img-fluid" src={{article.imageUrl}} /></td>
+        <td>{{article.tag.name}}</td>
+        <td>{{article.user.firstName}}</td>
+        <td>{{article.articleStatus.name}}</td>
+
+        <td *ngIf="currentUser.roleID == 2"><a (click)="deleteArticle(article)" class="btn btn-danger">Delete</a></td>
+        <td *ngIf="currentUser.roleID == 2 && article.articleStatusID == 1"><a (click)="editArticle(article)" class="btn btn-success">Edit</a></td>
+        <td *ngIf="currentUser.roleID == 3 && article.articleStatusID == 2"><a (click)="publishArticle(article)" class="btn btn-success">Publish</a></td>
+
+      </tr>
+      <tr><td colspan="4" *ngIf="currentUser.roleID == 2">
+        <a routerLink="/add-artikel" class="btn btn-success">Nieuw artikel toevoegen</a>
+      </td></tr>
+      
+    </tbody>
+  </table>

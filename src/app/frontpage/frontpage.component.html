@@ -1,0 +1,31 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+      <input type="text" formControlName="search" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="tag">Tag</label>
+    <select class="form-control"   formControlName="tag"   >
+        <option [ngValue]="tag.tagID" *ngFor="let tag of tags">{{tag.name}}</option>
+    </select>
+</div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Search
+    </button>
+</div>
+
+</form>
+
+<h1>Welcome to the frontpage!</h1>
+<div  *ngFor="let article of newsArticles">
+    <div class="card" style="width: 40rem;" *ngIf="article.articleStatusID == 3">
+        <img class="card-img-top" src={{article.imageUrl}} alt="Card image cap">
+        <div class="card-body">
+          <h2 class="card-title">{{article.title}}</h2>
+          <p class="card-text">{{article.subTitle}}</p>
+          <a (click)="gotoArticle(article)" class="btn btn-primary">Meer lezen</a>
+        </div>
+      </div>
+</div>
