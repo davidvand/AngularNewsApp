@@ -6,7 +6,7 @@ export class Comment {
     text: string;
     userID: number;
     articleID: number;
-
+    user: User;
 
 
 }
