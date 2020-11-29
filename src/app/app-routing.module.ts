@@ -18,7 +18,7 @@ import { ArticleComponent } from './article/article.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: FrontpageComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'controlpanel', component: ControlpanelComponent },

@@ -1,18 +1,22 @@
-<h1 *ngIf="currentUser.roleID == 3">Admin Control panel </h1>
+<h1 *ngIf="currentUser.roleID == 3" class="text-center">Admin Control panel </h1>
+<hr>
 
-<div class="row" *ngIf="currentUser.roleID == 3">
-    <div class="col">
-        <a class="btn btn-primary"  role="button" routerLink="/journalisten">Journalisten beheren</a>
+<div class="d-flex justify-content-between" *ngIf="currentUser.roleID == 3">
+    <div class="col-3 rounded bg-light">
+        <a class="btn btn-white"  role="button" routerLink="/journalisten"><b>Journalisten beheren</b> </a>
         <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">perm_identity</mat-icon>
+   
     </div>
-    <div class="col bg-secondary">       
-         <a class="btn btn-primary" role="button" routerLink="/artikelen">Artikelen beheren</a>
+    <div class="col-3 bg-info rounded">       
+         <a class="btn btn-white" role="button" routerLink="/artikelen"><b>Artikelen beheren</b></a>
          <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">article</mat-icon>
+        
     </div>
-    <div class="col">
-        <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">speaker_notes</mat-icon>
-
-                <a class="btn btn-primary" role="button" routerLink="/tags">Tags beheren</a>
+    <div class="col-3 rounded bg-light">
+        
+                <a class="btn btn-white" role="button" routerLink="/tags"><b>Tags beheren</b> </a>
+                    <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">speaker_notes</mat-icon>
+               
                 
         </div>
 </div>
@@ -20,10 +24,10 @@
 <h1 *ngIf="currentUser.roleID == 2">Journalist Control panel </h1>
 
 <div class="row" *ngIf="currentUser.roleID == 2">
-    <div class="col bg-secondary">       
+    <div class="col-3 bg-info rounded">       
         <mat-icon class="icon" aria-hidden="false" aria-label="Example home icon">article</mat-icon>
         <br>
-         <a class="btn btn-primary" role="button" routerLink="/artikelen">Artikelen beheren</a>        
+         <a class="btn btn-white" role="button" routerLink="/artikelen">Artikelen beheren</a>        
     </div>
 </div>
-
+<hr>

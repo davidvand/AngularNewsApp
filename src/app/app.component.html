@@ -1,10 +1,10 @@
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" >
+<nav class="navbar navbar-expand navbar-info bg-info" >
   <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/frontpage">Home</a>
+      <a class="nav-item nav-link text-dark" routerLink="/frontpage">Home</a>
       
       
-      <a class="nav-item nav-link" *ngIf="currentUser; else elseBlock" (click)="logout()">Logout</a>
+      <a class="nav-item nav-link text-dark" *ngIf="currentUser; else elseBlock" (click)="logout()">Logout</a>
       <ng-template #elseBlock><a class="nav-item nav-link" routerLink="/login">Login</a></ng-template>
 
   </div>
@@ -14,8 +14,8 @@
           <li class="nav-item">
               <a class="nav-item nav-link"  *ngIf="currentUser">Logged in as <b>{{currentUser.firstName}} </b></a>
           </li>
-          <li class="nav-item" *ngIf="currentUser">
-              <a class="nav-link" routerLink="/controlpanel">Control panel</a>
+          <li class="nav-item bg-light rounded" *ngIf="currentUser">
+              <a class="nav-link text-dark" routerLink="/controlpanel"><b>Control panel </b></a>
           </li>
       </ul>
   </div>
@@ -35,7 +35,9 @@
 <!-- footer -->
 <div class="text-center">
   <p>
+      Angular News App
   </p>
   <p>
+      David van Dongen - 2020
   </p>
 </div>

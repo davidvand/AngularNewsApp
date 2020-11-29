@@ -1,15 +1,21 @@
 <h1><b>{{currentArticle.title}}</b></h1>
 <h3>{{currentArticle.subTitle}}</h3>
 <hr>
-<a *ngIf="currentUser" (click)="likeArticle()">
-    <mat-icon class="icon" aria-hidden="false">thumb_up</mat-icon>
-</a>
-<p>Likes: {{currentArticle.likes}}</p>
+<div class="d-flex flex-row">
+    <a class="btn btn-primary" *ngIf="currentUser" (click)="likeArticle()" title="Like the article">
+        <mat-icon class="icon" aria-hidden="false">thumb_up</mat-icon>
+    </a>
+    <div class="p-2">
+        <p> Likes: {{currentArticle.likes}}</p>
+    </div>
+    
+</div>
+
 
 <hr>
 <img class="img-fluid" src={{currentArticle.imageUrl}} />
 <br>
-<p class="text">{{currentArticle.body}}</p>
+<p class="text p-2">{{currentArticle.body}}</p>
 
 <h2>Reactie plaatsen</h2>
 <form  [formGroup]="reactForm" (ngSubmit)="onSubmit()" *ngIf="currentUser && disabled">
